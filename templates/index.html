@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>CodeStory</title>
+<link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({startOnLoad:true});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>CodeStory</h1>
+<p class="subtitle">Turn code into step-by-step explanations</p>
+
+<form method="POST">
+
+<textarea name="code" placeholder="Paste your code here...">{{ request.form.get('code','') }}</textarea>
+
+<br>
+
+<div class="button-group">
+
+<button type="submit" name="action" value="analyze">
+Analyze Code
+</button>
+
+<button type="submit" name="action" value="ai">
+Explain with AI
+</button>
+
+</div>
+
+</form>
+
+{% if steps %}
+
+<div class="section">
+
+<h2>Execution Steps</h2>
+
+<div class="steps">
+
+{% for step in steps %}
+<div class="step">{{step}}</div>
+{% endfor %}
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Execution Flow</h2>
+
+<div class="flow">
+
+{% for f in flow %}
+<div class="box">{{f}}</div>
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="section">
+
+<h2>Code Execution</h2>
+
+<pre id="code-display">
+{% for line in request.form.get('code','').split('\n') %}
+<div class="code-line" id="line{{loop.index0}}">
+{{ line }}
+</div>
+{% endfor %}
+</pre>
+
+</div>
+
+{% if simulation %}
+
+<div class="section">
+
+<h2>Execution Simulation</h2>
+
+<div id="simulation-container"></div>
+
+<button onclick="startSimulation()">Run Simulation</button>
+
+<script>
+
+let simulationSteps = {{ simulation | tojson }};
+let executionLines = {{ execution_lines | tojson }};
+let codeLines = document.querySelectorAll(".code-line");
+
+function startSimulation(){
+
+let container = document.getElementById("simulation-container");
+
+container.innerHTML = "";
+
+let i = 0;
+
+function runStep(){
+
+if(i < simulationSteps.length){
+
+codeLines.forEach(line => line.classList.remove("active-line"));
+
+let lineIndex = executionLines[i];
+
+if(codeLines[lineIndex]){
+codeLines[lineIndex].classList.add("active-line");
+}
+
+let step = document.createElement("div");
+step.className = "step";
+step.innerText = simulationSteps[i];
+
+container.appendChild(step);
+
+i++;
+
+setTimeout(runStep, 900);
+
+}
+
+}
+
+runStep();
+
+}
+
+</script>
+
+</div>
+
+{% endif %}
+
+
+{% if ai_explanation %}
+
+<div class="section">
+
+<h2>AI Explanation</h2>
+
+<div class="ai-box">
+
+{{ ai_explanation | safe}}
+
+</div>
+
+</div>
+
+{% endif %}
+
+</body>
+</html>
