@@ -25,28 +25,28 @@ It highlights code as it runs, simulates loop execution and generates AI explana
 Input Python code like:
 
 python
-'''i = 1
+''' i = 1
 while i <= 5:
     square = i * i
     print(square)
-    i += 1'''
+    i += 1 '''
     
 
 
 
-##CodeStory will:
+## CodeStory will:
 
 Simulate each loop iteration
 Highlight the currently executing line
 Show the output produced
 Generate an AI explanation of the program
 
-##Current Status
+## Current Status
 
 This project is currently a V1 prototype and supports only basic Python constructs such as:simple loops,basic conditionals,simple arithmetic operations
 The current analyzer uses rule-based parsing and therefore only works reliably for simpler code snippets.
 
-##Vision
+## Vision
 
 The long-term goal of CodeStory is to become an AI tutor and debugger for computer science students.
 
