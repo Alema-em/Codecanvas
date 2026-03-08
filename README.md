@@ -1,6 +1,6 @@
-# CodeStory
+# Codecanvas
 
-CodeStory is an interactive tool that helps visualize how Python code executes step by step.
+Codecanvas is an interactive tool that helps visualize how Python code executes step by step.
 
 It highlights code as it runs, simulates loop execution and generates AI explanations using a local LLM.
 
@@ -34,7 +34,7 @@ while i <= 5:
 
 
 
-## CodeStory will:
+## Codecanvas will:
 
 - Simulate each loop iteration
 - Highlight the currently executing line
@@ -48,7 +48,7 @@ The current analyzer uses rule-based parsing and therefore only works reliably f
 
 ## Vision
 
-The long-term goal of CodeStory is to become an AI tutor and debugger for computer science students.
+The long-term goal of Codecanvas is to become an AI tutor and debugger for computer science students.
 
 Future versions aim to include:
 - full Python AST-based analysis
@@ -58,6 +58,6 @@ Future versions aim to include:
 - better AI explanations
 - support for more programming constructs
 
-Ultimately, CodeStory is intended to help students understand how code executes internally, similar to tools like Python Tutor but enhanced with AI explanations.
+Ultimately, Codecanvas is intended to help students understand how code executes internally, similar to tools like Python Tutor but enhanced with AI explanations.
 
    
