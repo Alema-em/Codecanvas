@@ -36,10 +36,10 @@ while i <= 5:
 
 ## CodeStory will:
 
--Simulate each loop iteration
--Highlight the currently executing line
--Show the output produced
--Generate an AI explanation of the program
+- Simulate each loop iteration
+- Highlight the currently executing line
+- Show the output produced
+- Generate an AI explanation of the program
 
 ## Current Status
 
@@ -51,12 +51,12 @@ The current analyzer uses rule-based parsing and therefore only works reliably f
 The long-term goal of CodeStory is to become an AI tutor and debugger for computer science students.
 
 Future versions aim to include:
--full Python AST-based analysis
--accurate execution tracing
--interactive debugging
--step-through variable tracking
--better AI explanations
--support for more programming constructs
+- full Python AST-based analysis
+- accurate execution tracing
+- interactive debugging
+- step-through variable tracking
+- better AI explanations
+- support for more programming constructs
 
 Ultimately, CodeStory is intended to help students understand how code executes internally, similar to tools like Python Tutor but enhanced with AI explanations.
 
