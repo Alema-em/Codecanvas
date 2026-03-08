@@ -36,10 +36,10 @@ while i <= 5:
 
 ## CodeStory will:
 
-Simulate each loop iteration
-Highlight the currently executing line
-Show the output produced
-Generate an AI explanation of the program
+-Simulate each loop iteration
+-Highlight the currently executing line
+-Show the output produced
+-Generate an AI explanation of the program
 
 ## Current Status
 
